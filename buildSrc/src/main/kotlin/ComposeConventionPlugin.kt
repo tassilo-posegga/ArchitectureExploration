@@ -1,5 +1,7 @@
+import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.findByType
 
 class ComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -7,7 +9,13 @@ class ComposeConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.plugin.compose")
             }
-            // Note: buildFeatures.compose = true is configured explicitly in each module's build.gradle.kts
+
+            // Configure compose build feature after evaluation to ensure android extension is available
+            afterEvaluate {
+                extensions.findByType<BaseExtension>()?.apply {
+                    buildFeatures.compose = true
+                }
+            }
         }
     }
 }

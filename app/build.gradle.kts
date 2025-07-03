@@ -1,6 +1,7 @@
 plugins {
-    id("architectureexploration.android.application")
-    id("architectureexploration.compose")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -33,6 +34,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+    }
+
+    buildFeatures {
+        compose = true
     }
 }
 
