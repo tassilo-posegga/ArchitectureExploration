@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation(project(":feature:home:domain"))
+    implementation(project(":feature:home:data"))
     implementation(project(":feature:home:presentation"))
     implementation(project(":feature:home:api"))
     implementation(libs.koin.android)

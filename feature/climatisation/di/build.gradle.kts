@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation(project(":feature:climatisation:domain"))
+    implementation(project(":feature:climatisation:data"))
     implementation(project(":feature:climatisation:presentation"))
     implementation(project(":feature:climatisation:api"))
     implementation(libs.koin.android)
