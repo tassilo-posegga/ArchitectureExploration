@@ -30,14 +30,34 @@
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/climatisation" />
             <option value="$PROJECT_DIR$/feature/climatisation/api" />
+            <option value="$PROJECT_DIR$/feature/climatisation/data" />
+            <option value="$PROJECT_DIR$/feature/climatisation/di" />
+            <option value="$PROJECT_DIR$/feature/climatisation/domain" />
+            <option value="$PROJECT_DIR$/feature/climatisation/presentation" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/home/api" />
+            <option value="$PROJECT_DIR$/feature/home/data" />
+            <option value="$PROJECT_DIR$/feature/home/di" />
+            <option value="$PROJECT_DIR$/feature/home/domain" />
+            <option value="$PROJECT_DIR$/feature/home/presentation" />
             <option value="$PROJECT_DIR$/feature/profile" />
             <option value="$PROJECT_DIR$/feature/profile/api" />
+            <option value="$PROJECT_DIR$/feature/profile/data" />
+            <option value="$PROJECT_DIR$/feature/profile/di" />
+            <option value="$PROJECT_DIR$/feature/profile/domain" />
+            <option value="$PROJECT_DIR$/feature/profile/presentation" />
             <option value="$PROJECT_DIR$/feature/range" />
             <option value="$PROJECT_DIR$/feature/range/api" />
+            <option value="$PROJECT_DIR$/feature/range/data" />
+            <option value="$PROJECT_DIR$/feature/range/di" />
+            <option value="$PROJECT_DIR$/feature/range/domain" />
+            <option value="$PROJECT_DIR$/feature/range/presentation" />
             <option value="$PROJECT_DIR$/feature/vehicle" />
             <option value="$PROJECT_DIR$/feature/vehicle/api" />
+            <option value="$PROJECT_DIR$/feature/vehicle/data" />
+            <option value="$PROJECT_DIR$/feature/vehicle/di" />
+            <option value="$PROJECT_DIR$/feature/vehicle/domain" />
+            <option value="$PROJECT_DIR$/feature/vehicle/presentation" />
           </set>
         </option>
       </GradleProjectSettings>
