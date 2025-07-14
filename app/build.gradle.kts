@@ -53,11 +53,11 @@ dependencies {
     implementation(project(":core:data"))
 
     // Feature implementation modules for DI setup
-    implementation(project(":feature:home"))
-    implementation(project(":feature:profile"))
-    implementation(project(":feature:vehicle"))
-    implementation(project(":feature:climatisation"))
-    implementation(project(":feature:range"))
+    implementation(project(":feature:home:di"))
+    implementation(project(":feature:profile:di"))
+    implementation(project(":feature:vehicle:di"))
+    implementation(project(":feature:climatisation:di"))
+    implementation(project(":feature:range:di"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

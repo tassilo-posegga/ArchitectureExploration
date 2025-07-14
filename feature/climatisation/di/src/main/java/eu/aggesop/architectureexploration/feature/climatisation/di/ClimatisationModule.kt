@@ -28,5 +28,5 @@ val climatisationModule = module {
 
     // Presentation layer
     single<ClimatisationTileProvider> { ClimatisationTileProviderImpl() }
-    viewModel { ClimatisationViewModel(get(), get(), get()) }
+    viewModel { ClimatisationViewModel(get(), get(), get(), get()) }
 }

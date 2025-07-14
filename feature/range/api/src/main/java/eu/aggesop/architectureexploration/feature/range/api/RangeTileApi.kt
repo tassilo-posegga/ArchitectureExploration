@@ -6,7 +6,3 @@ interface RangeTileProvider {
     @Composable
     fun RangeTile()
 }
-
-interface RangeDomain {
-    fun getRangeData(): RangeData
-}

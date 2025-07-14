@@ -1,13 +1,16 @@
 package eu.aggesop.architectureexploration.feature.climatisation.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import eu.aggesop.architectureexploration.feature.climatisation.domain.model.ClimatisationData
+import eu.aggesop.architectureexploration.feature.climatisation.domain.repository.ClimatisationRepository
 import eu.aggesop.architectureexploration.feature.climatisation.domain.usecase.DecreaseTemperatureUseCase
 import eu.aggesop.architectureexploration.feature.climatisation.domain.usecase.IncreaseTemperatureUseCase
 import eu.aggesop.architectureexploration.feature.climatisation.domain.usecase.ToggleAcUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 data class ClimatisationState(
     val isAcOn: Boolean = false,
@@ -15,6 +18,7 @@ data class ClimatisationState(
 )
 
 class ClimatisationViewModel(
+    private val repository: ClimatisationRepository,
     private val toggleAcUseCase: ToggleAcUseCase,
     private val increaseTemperatureUseCase: IncreaseTemperatureUseCase,
     private val decreaseTemperatureUseCase: DecreaseTemperatureUseCase
@@ -22,29 +26,30 @@ class ClimatisationViewModel(
     private val _state = MutableStateFlow(ClimatisationState())
     val state: StateFlow<ClimatisationState> = _state.asStateFlow()
 
+    init {
+        viewModelScope.launch {
+            repository.getClimatisationData().collect { data ->
+                _state.value = data.toClimatisationState()
+            }
+        }
+    }
+
     fun toggleAc() {
-        val currentData = _state.value.toClimatisationData()
-        val updatedData = toggleAcUseCase(currentData)
-        _state.value = updatedData.toClimatisationState()
+        viewModelScope.launch {
+            toggleAcUseCase()
+        }
     }
 
     fun increaseTemperature() {
-        val currentData = _state.value.toClimatisationData()
-        val updatedData = increaseTemperatureUseCase(currentData)
-        _state.value = updatedData.toClimatisationState()
+        viewModelScope.launch {
+            increaseTemperatureUseCase()
+        }
     }
 
     fun decreaseTemperature() {
-        val currentData = _state.value.toClimatisationData()
-        val updatedData = decreaseTemperatureUseCase(currentData)
-        _state.value = updatedData.toClimatisationState()
-    }
-
-    private fun ClimatisationState.toClimatisationData(): ClimatisationData {
-        return ClimatisationData(
-            isAcOn = isAcOn,
-            temperature = temperature
-        )
+        viewModelScope.launch {
+            decreaseTemperatureUseCase()
+        }
     }
 
     private fun ClimatisationData.toClimatisationState(): ClimatisationState {
