@@ -41,32 +41,41 @@ graph TD
     CoreNetwork[":core:network"]
     CoreData[":core:data"]
     
-    subgraph Home Feature
-        FeatureHome[":feature:home"]
-        FeatureHomeApi[":feature:home:api"]
-        FeatureHomeUI[":feature:home:ui"]
-        FeatureHomeDomain[":feature:home:domain"]
-        FeatureHomeData[":feature:home:data"]
+    subgraph Vehicle Feature
+        FeatureVehicle[":feature:vehicle"]
+        FeatureVehicleApi[":feature:vehicle:api"]
+        FeatureVehicleUI[":feature:vehicle:ui"]
+        FeatureVehicleDomain[":feature:vehicle:domain"]
+        FeatureVehicleData[":feature:vehicle:data"]
     end
 
-    App --> FeatureHome
-    App --> FeatureHomeApi
+    subgraph Sub Features (API only)
+        FeatureRangeApi[":feature:range:api"]
+        FeatureClimatisationApi[":feature:climatisation:api"]
+        FeatureAccessApi[":feature:access:api"]
+    end
+
+    App --> FeatureVehicle
+    App --> FeatureVehicleApi
     App --> CoreUI
     
-    FeatureHome --> FeatureHomeApi
-    FeatureHome --> FeatureHomeUI
-    FeatureHome --> FeatureHomeDomain
-    FeatureHome --> FeatureHomeData
+    FeatureVehicle --> FeatureVehicleApi
+    FeatureVehicle --> FeatureVehicleUI
+    FeatureVehicle --> FeatureVehicleDomain
+    FeatureVehicle --> FeatureVehicleData
     
-    FeatureHomeUI --> FeatureHomeApi
-    FeatureHomeUI --> FeatureHomeDomain
-    FeatureHomeUI --> CoreUI
+    FeatureVehicleUI --> FeatureVehicleApi
+    FeatureVehicleUI --> FeatureVehicleDomain
+    FeatureVehicleUI --> CoreUI
+    FeatureVehicleUI --> FeatureRangeApi
+    FeatureVehicleUI --> FeatureClimatisationApi
+    FeatureVehicleUI --> FeatureAccessApi
     
-    FeatureHomeData --> FeatureHomeDomain
-    FeatureHomeData --> CoreData
-    FeatureHomeData --> CoreNetwork
+    FeatureVehicleData --> FeatureVehicleDomain
+    FeatureVehicleData --> CoreData
+    FeatureVehicleData --> CoreNetwork
     
-    FeatureHomeDomain -->|Interfaces/Models| CoreData
+    FeatureVehicleDomain -->|Interfaces/Models| CoreData
 ```
 
 ---
