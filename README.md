@@ -66,7 +66,7 @@ graph TD
     FeatureHomeData --> CoreData
     FeatureHomeData --> CoreNetwork
     
-    FeatureHomeDomain --> CoreData (Interfaces/Models)
+    FeatureHomeDomain -->|Interfaces/Models| CoreData
 ```
 
 ---
