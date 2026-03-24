@@ -41,7 +41,7 @@ graph TD
     CoreNetwork[":core:network"]
     CoreData[":core:data"]
     
-    subgraph Vehicle Feature
+    subgraph VehicleFeature ["Vehicle Feature"]
         FeatureVehicle[":feature:vehicle"]
         FeatureVehicleApi[":feature:vehicle:api"]
         FeatureVehicleUI[":feature:vehicle:ui"]
@@ -49,7 +49,7 @@ graph TD
         FeatureVehicleData[":feature:vehicle:data"]
     end
 
-    subgraph Sub Features (API only)
+    subgraph SubFeaturesApi ["Sub Features (API only)"]
         FeatureRangeApi[":feature:range:api"]
         FeatureClimatisationApi[":feature:climatisation:api"]
         FeatureAccessApi[":feature:access:api"]
@@ -109,19 +109,19 @@ The application follows a Unidirectional Data Flow (UDF) pattern:
 
 ```mermaid
 graph TD
-    subgraph UI Layer
+    subgraph UILayer ["UI Layer"]
         Screen[Compose Screen]
         VM[ViewModel]
         State[StateFlow]
     end
     
-    subgraph Domain Layer
+    subgraph DomainLayer ["Domain Layer"]
         UC[UseCase]
         DomainModel[Domain Model]
         RepoInt[Repository Interface]
     end
     
-    subgraph Data Layer
+    subgraph DataLayer ["Data Layer"]
         RepoImpl[Repository Implementation]
         DS[DataSource]
         DTO[Data Transfer Object]
