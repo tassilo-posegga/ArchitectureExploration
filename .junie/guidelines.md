@@ -66,18 +66,16 @@ This document outlines the development guidelines and architectural principles f
 #### Network & Data
 - Use **Retrofit** with **Kotlinx Serialization** for API calls
 - Implement Repository pattern for data access
-- Use **Room** database for local storage when needed
 
 ### Testing Guidelines
 - Write unit tests for ViewModels, Repositories, and Use Cases
 - Use **Compose Testing** for UI tests
-- Mock dependencies using **Mockk** or similar
+- Mock dependencies using **Mockk**
 - Junie should run tests to verify correctness of proposed solutions
 - Build the project before submitting results to ensure compilation
 
 ### Code Style
 - Follow **Kotlin Coding Conventions**
-- Use **ktlint** for code formatting
 - Prefer **sealed classes** for state representations
 - Use **data classes** for immutable data structures
 - Apply **single responsibility principle** in all layers
