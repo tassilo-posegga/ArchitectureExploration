@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation(project(":feature:vehicle:api"))
+    implementation(project(":feature:vehicle:ui"))
     implementation(project(":feature:climatisation:api"))
     implementation(project(":feature:range:api"))
     implementation(project(":core:ui"))

@@ -28,6 +28,9 @@ android {
 
 dependencies {
     implementation(project(":feature:home:api"))
+    implementation(project(":feature:home:data"))
+    implementation(project(":feature:home:domain"))
+    implementation(project(":feature:home:ui"))
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
     implementation(project(":core:network"))

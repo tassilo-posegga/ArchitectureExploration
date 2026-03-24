@@ -28,6 +28,8 @@ android {
 
 dependencies {
     implementation(project(":feature:range:api"))
+    implementation(project(":feature:range:domain"))
+    implementation(project(":feature:range:ui"))
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
     implementation(project(":core:network"))

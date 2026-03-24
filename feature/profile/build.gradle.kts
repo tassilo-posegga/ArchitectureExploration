@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation(project(":feature:profile:api"))
+    implementation(project(":feature:profile:ui"))
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
     implementation(project(":core:network"))
