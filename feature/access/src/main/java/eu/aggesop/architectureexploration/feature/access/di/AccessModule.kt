@@ -1,9 +1,11 @@
 package eu.aggesop.architectureexploration.feature.access.di
 
 import eu.aggesop.architectureexploration.feature.access.api.AccessTileProvider
+import eu.aggesop.architectureexploration.feature.access.api.VehicleLockStateProvider
 import eu.aggesop.architectureexploration.feature.access.data.datasource.AccessDataSource
 import eu.aggesop.architectureexploration.feature.access.data.datasource.AccessDataSourceImpl
 import eu.aggesop.architectureexploration.feature.access.data.repository.AccessRepositoryImpl
+import eu.aggesop.architectureexploration.feature.access.domain.provider.VehicleLockStateProviderImpl
 import eu.aggesop.architectureexploration.feature.access.domain.repository.AccessRepository
 import eu.aggesop.architectureexploration.feature.access.domain.usecase.GetLockStateUseCase
 import eu.aggesop.architectureexploration.feature.access.domain.usecase.GetLockStateUseCaseImpl
@@ -25,6 +27,7 @@ val accessModule = module {
     single<GetLockStateUseCase> { GetLockStateUseCaseImpl(get()) }
     single<LockVehicleUseCase> { LockVehicleUseCaseImpl(get()) }
     single<UnlockVehicleUseCase> { UnlockVehicleUseCaseImpl(get()) }
+    single<VehicleLockStateProvider> { VehicleLockStateProviderImpl(get()) }
 
     // Presentation layer
     single<AccessTileProvider> { AccessTileProviderImpl() }

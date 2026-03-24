@@ -1,18 +1,27 @@
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
+android {
+    namespace = "eu.aggesop.architectureexploration.feature.access.domain"
+    compileSdk = 36
 
-kotlin {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+    defaultConfig {
+        minSdk = 30
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
     }
 }
 
 dependencies {
+    implementation(project(":feature:access:api"))
     implementation(libs.kotlinx.coroutines.core)
 }
