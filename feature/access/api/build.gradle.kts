@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "eu.aggesop.architectureexploration.feature.vehicle.ui"
+    namespace = "eu.aggesop.architectureexploration.feature.access.api"
     compileSdk = 36
 
     defaultConfig {
@@ -27,10 +27,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:vehicle:api"))
-    implementation(project(":feature:climatisation:api"))
-    implementation(project(":feature:access:api"))
-    implementation(project(":feature:range:api"))
     implementation(project(":core:ui"))
 
     implementation(libs.androidx.core.ktx)
@@ -38,7 +34,6 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.koin.androidx.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -57,6 +57,7 @@ dependencies {
     implementation(project(":feature:profile"))
     implementation(project(":feature:vehicle"))
     implementation(project(":feature:climatisation"))
+    implementation(project(":feature:access"))
     implementation(project(":feature:range"))
 
     implementation(libs.androidx.core.ktx)

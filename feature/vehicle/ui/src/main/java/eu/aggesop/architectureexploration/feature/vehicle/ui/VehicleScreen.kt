@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import eu.aggesop.architectureexploration.feature.climatisation.api.ClimatisationTileProvider
+import eu.aggesop.architectureexploration.feature.access.api.AccessTileProvider
 import eu.aggesop.architectureexploration.feature.range.api.RangeTileProvider
 import eu.aggesop.architectureexploration.feature.vehicle.api.VehicleScreenProvider
 import org.koin.compose.koinInject
@@ -23,10 +24,12 @@ class VehicleScreenProviderImpl : VehicleScreenProvider {
     override fun VehicleScreen() {
         val climatisationProvider: ClimatisationTileProvider = koinInject()
         val rangeProvider: RangeTileProvider = koinInject()
+        val accessProvider: AccessTileProvider = koinInject()
         
         VehicleScreenContent(
             climatisationProvider = climatisationProvider,
-            rangeProvider = rangeProvider
+            rangeProvider = rangeProvider,
+            accessProvider = accessProvider
         )
     }
 }
@@ -34,7 +37,8 @@ class VehicleScreenProviderImpl : VehicleScreenProvider {
 @Composable
 internal fun VehicleScreenContent(
     climatisationProvider: ClimatisationTileProvider,
-    rangeProvider: RangeTileProvider
+    rangeProvider: RangeTileProvider,
+    accessProvider: AccessTileProvider
 ) {
     Column(
         modifier = Modifier
@@ -55,6 +59,9 @@ internal fun VehicleScreenContent(
         
         // Climatisation tile
         climatisationProvider.ClimatisationTile()
+
+        // Access tile
+        accessProvider.AccessTile()
     }
 }
 
@@ -73,6 +80,12 @@ private fun VehicleScreenPreview() {
             @Composable
             override fun RangeTile() {
                 Text("Range Tile Preview")
+            }
+        },
+        accessProvider = object : AccessTileProvider {
+            @Composable
+            override fun AccessTile() {
+                Text("Access Tile Preview")
             }
         }
     )

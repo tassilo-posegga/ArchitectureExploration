@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="ArchitectureExploration.feature.climatisation.di" target="21" />
+      <module name="ArchitectureExploration.feature.climatisation.presentation" target="21" />
+      <module name="ArchitectureExploration.feature.home.di" target="21" />
+      <module name="ArchitectureExploration.feature.home.presentation" target="21" />
+      <module name="ArchitectureExploration.feature.profile.di" target="21" />
+      <module name="ArchitectureExploration.feature.profile.presentation" target="21" />
+      <module name="ArchitectureExploration.feature.range.data" target="21" />
+      <module name="ArchitectureExploration.feature.range.di" target="21" />
+      <module name="ArchitectureExploration.feature.range.presentation" target="21" />
+      <module name="ArchitectureExploration.feature.vehicle.di" target="21" />
+      <module name="ArchitectureExploration.feature.vehicle.presentation" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

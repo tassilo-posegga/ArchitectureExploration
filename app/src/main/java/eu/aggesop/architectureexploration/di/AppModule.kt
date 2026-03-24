@@ -1,6 +1,7 @@
 package eu.aggesop.architectureexploration.di
 
 import eu.aggesop.architectureexploration.feature.climatisation.di.climatisationModule
+import eu.aggesop.architectureexploration.feature.access.di.accessModule
 import eu.aggesop.architectureexploration.feature.home.di.homeModule
 import eu.aggesop.architectureexploration.feature.profile.di.profileModule
 import eu.aggesop.architectureexploration.feature.range.di.rangeModule
@@ -13,6 +14,7 @@ val appModule = module {
         profileModule,
         vehicleModule,
         climatisationModule,
+        accessModule,
         rangeModule
     )
 }
