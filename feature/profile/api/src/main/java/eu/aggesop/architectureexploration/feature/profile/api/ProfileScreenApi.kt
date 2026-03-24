@@ -3,8 +3,10 @@ package eu.aggesop.architectureexploration.feature.profile.api
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import kotlinx.serialization.Serializable
 
-const val PROFILE_ROUTE = "profile"
+@Serializable
+object ProfileRoute
 
 interface ProfileScreenProvider {
     @Composable
@@ -12,7 +14,7 @@ interface ProfileScreenProvider {
 }
 
 fun NavGraphBuilder.profileScreen(provider: ProfileScreenProvider) {
-    composable(PROFILE_ROUTE) {
+    composable<ProfileRoute> {
         provider.ProfileScreen()
     }
 }

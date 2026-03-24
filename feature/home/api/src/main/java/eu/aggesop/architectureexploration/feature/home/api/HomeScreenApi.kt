@@ -3,8 +3,10 @@ package eu.aggesop.architectureexploration.feature.home.api
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import kotlinx.serialization.Serializable
 
-const val HOME_ROUTE = "home"
+@Serializable
+object HomeRoute
 
 interface HomeScreenProvider {
     @Composable
@@ -12,7 +14,7 @@ interface HomeScreenProvider {
 }
 
 fun NavGraphBuilder.homeScreen(provider: HomeScreenProvider) {
-    composable(HOME_ROUTE) {
+    composable<HomeRoute> {
         provider.HomeScreen()
     }
 }

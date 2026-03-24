@@ -24,17 +24,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import eu.aggesop.architectureexploration.feature.home.api.HOME_ROUTE
+import eu.aggesop.architectureexploration.feature.home.api.HomeRoute
 import eu.aggesop.architectureexploration.feature.home.api.HomeScreenProvider
 import eu.aggesop.architectureexploration.feature.home.api.homeScreen
-import eu.aggesop.architectureexploration.feature.profile.api.PROFILE_ROUTE
+import eu.aggesop.architectureexploration.feature.profile.api.ProfileRoute
 import eu.aggesop.architectureexploration.feature.profile.api.ProfileScreenProvider
 import eu.aggesop.architectureexploration.feature.profile.api.profileScreen
-import eu.aggesop.architectureexploration.feature.vehicle.api.VEHICLE_ROUTE
+import eu.aggesop.architectureexploration.feature.vehicle.api.VehicleRoute
 import eu.aggesop.architectureexploration.feature.vehicle.api.VehicleScreenProvider
 import eu.aggesop.architectureexploration.feature.vehicle.api.vehicleScreen
 import eu.aggesop.architectureexploration.ui.theme.ArchitectureExplorationTheme
@@ -57,7 +58,7 @@ class MainActivity : ComponentActivity() {
 fun ArchitectureExplorationApp() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route
+    val currentDestination = navBackStackEntry?.destination
 
     val homeProvider: HomeScreenProvider = koinInject()
     val profileProvider: ProfileScreenProvider = koinInject()
@@ -74,7 +75,7 @@ fun ArchitectureExplorationApp() {
                         )
                     },
                     label = { Text(destination.label) },
-                    selected = currentRoute == destination.route,
+                    selected = currentDestination?.hasRoute(destination.route::class) ?: false,
                     onClick = {
                         navController.navigate(destination.route) {
                             popUpTo(navController.graph.startDestinationId) {
@@ -90,7 +91,7 @@ fun ArchitectureExplorationApp() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = HOME_ROUTE,
+            startDestination = HomeRoute,
             modifier = Modifier
                 .fillMaxSize()
                 .safeDrawingPadding()
@@ -105,11 +106,11 @@ fun ArchitectureExplorationApp() {
 enum class AppDestinations(
     val label: String,
     val icon: ImageVector,
-    val route: String,
+    val route: Any,
 ) {
-    HOME("Home", Icons.Default.Home, HOME_ROUTE),
-    VEHICLE("Vehicle", Icons.Default.Settings, VEHICLE_ROUTE),
-    PROFILE("Profile", Icons.Default.AccountBox, PROFILE_ROUTE),
+    HOME("Home", Icons.Default.Home, HomeRoute),
+    VEHICLE("Vehicle", Icons.Default.Settings, VehicleRoute),
+    PROFILE("Profile", Icons.Default.AccountBox, ProfileRoute),
 }
 
 @Composable

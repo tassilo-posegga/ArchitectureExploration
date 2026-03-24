@@ -3,8 +3,10 @@ package eu.aggesop.architectureexploration.feature.vehicle.api
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import kotlinx.serialization.Serializable
 
-const val VEHICLE_ROUTE = "vehicle"
+@Serializable
+object VehicleRoute
 
 interface VehicleScreenProvider {
     @Composable
@@ -12,7 +14,7 @@ interface VehicleScreenProvider {
 }
 
 fun NavGraphBuilder.vehicleScreen(provider: VehicleScreenProvider) {
-    composable(VEHICLE_ROUTE) {
+    composable<VehicleRoute> {
         provider.VehicleScreen()
     }
 }
